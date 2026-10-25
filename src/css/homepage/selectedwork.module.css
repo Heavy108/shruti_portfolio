@@ -1,0 +1,253 @@
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(106, 12, 6, 0.25);
+  background-color: #A0BDDB;
+}
+
+.topLeftEmptyBox {
+  display: none; /* Hidden on mobile */
+}
+
+.headerArea {
+  background-color: #A0BDDB;
+  padding: 2.5rem 1.5rem;
+  border-bottom: 1px solid rgba(106, 12, 6, 0.25);
+}
+
+.tagline {
+  display: block;
+  color: #34211B;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.126rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.heading {
+  color: #34211B;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
+
+/* Mobile Thumbnails */
+.thumbnailsArea {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+}
+
+.thumbnailWrapper {
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.activeThumbnail {
+  opacity: 1;
+}
+
+.thumbnailImage {
+  object-fit: cover;
+}
+
+.contentArea {
+  background-color: #34211B;
+  display: flex;
+  flex-direction: column;
+}
+
+.textContent {
+  padding: 2.5rem 1.5rem;
+  color: #D4C9C3;
+}
+
+.logoAndTags {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.brandLogoImage {
+  width: auto;
+  height: clamp(24px, 4vw, 36px);
+  object-fit: contain;
+}
+
+.tagsDesktop {
+  display: none;
+  gap: 1rem;
+}
+
+.tagsMobile {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  border: 1px solid rgba(212, 201, 195, 0.3);
+  padding: 0.5rem 1rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.headline {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #A0BDDB;
+}
+
+.learnMore {
+  background: none;
+  border: none;
+  color: #A0BDDB;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* Mobile Main Image */
+.mainImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Fixed height for mobile */
+  background-color: #D3D3D3;
+}
+
+.mainImage {
+  object-fit: cover;
+}
+
+.navigationArea {
+  display: flex;
+  border-top: 1px solid rgba(106, 12, 6, 0.25);
+  background-color: #A0BDDB;
+}
+
+.navButton {
+  flex: 1;
+  background: none;
+  border: none;
+  border-right: 1px solid rgba(106, 12, 6, 0.25);
+  padding: 1.5rem 0;
+  font-size: 1.25rem;
+  color: #34211B;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.navButton:last-child {
+  border-right: none;
+}
+
+/* --- DESKTOP: ONE VIEWPORT LAYOUT --- */
+@media only screen and (min-width: 768px) {
+  .section {
+    /* Section grows naturally, no more 100vh lock here */
+    display: grid;
+    grid-template-columns: minmax(120px, 15vw) 1fr;
+    grid-template-rows: auto auto; 
+  }
+
+  .topLeftEmptyBox {
+    display: block;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    border-bottom: 1px solid rgba(106, 12, 6, 0.25);
+  }
+
+  .headerArea {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    padding: 2rem 4rem; 
+  }
+
+
+  .contentWrapper {
+    grid-column: 1 / -1; 
+    grid-row: 2 / 3;
+    /* This makes only the content block exactly one screen tall */
+    height: 100vh;
+    height: 100svh;
+    display: grid;
+    grid-template-columns: minmax(120px, 15vw) 1fr;
+    grid-template-rows: 1fr auto;
+    overflow: hidden; /* Prevents anything inside from breaking the layout */
+  }
+
+  .thumbnailsArea {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    flex-direction: column;
+    height: 100%;
+    border-right: 1px solid rgba(106, 12, 6, 0.25);
+  }
+
+  .thumbnailWrapper {
+    flex: 1; 
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .contentArea {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+  }
+
+  .textContent {
+    flex: 0 0 auto; 
+    padding: 2.5rem 4rem;
+  }
+
+  .mainImageWrapper {
+    flex: 1 1 0;
+    position: relative;
+    min-height: 0; 
+    width: 100%;
+  }
+
+  .navigationArea {
+    grid-column: 1 / -1; 
+    grid-row: 2 / 3; 
+    height: 60px;
+  }
+
+  .navButton {
+    padding: 0; 
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .tagsMobile {
+    display: none;
+  }
+  
+  .tagsDesktop {
+    display: flex;
+  }
+
+  .headline {
+    max-width: 600px;
+  }
+}
