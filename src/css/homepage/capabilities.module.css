@@ -1,0 +1,155 @@
+.section {
+  width: 100%;
+  background-color: #A0BDDB; /* Light blue background[cite: 1, 2, 3] */
+  display: flex;
+  flex-direction: column;
+  color: #34211B; /* Dark brown text[cite: 1, 2, 3] */
+  border-top: 1px solid rgba(106, 12, 6, 0.25); /* Thin reddish grid lines[cite: 1, 2, 3] */
+}
+
+/* Header Area */
+.headerRow {
+  display: flex;
+  border-bottom: 1px solid rgba(106, 12, 6, 0.25);
+}
+
+.emptyBox {
+  display: none;
+}
+
+.headerContent {
+  padding: 2.5rem 1.5rem;
+  flex: 1;
+}
+
+.tagline {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.heading {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
+
+/* List Area */
+.capabilitiesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.capabilityRow {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(106, 12, 6, 0.25);
+} /* Stacked layout for mobile[cite: 3] */
+
+.colId {
+  padding: 1.5rem 1.5rem 0.5rem;
+  font-size: 0.875rem;
+  font-family: monospace;
+}
+
+.colTitle {
+  padding: 0.5rem 1.5rem;
+}
+
+.colTitle h3 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  margin: 0;
+}
+
+.colTags {
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.colTags ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.colTags li {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.colImage {
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* --- DESKTOP GRID LAYOUT --- */
+@media only screen and (min-width: 768px) {
+  .headerRow {
+    display: grid;
+    grid-template-columns: minmax(100px, 10vw) 1fr;
+  }
+
+  .emptyBox {
+    display: block;
+    border-right: 1px solid rgba(106, 12, 6, 0.25);
+  }
+
+  .headerContent {
+    padding: 3rem 4rem;
+  }
+
+  .capabilityRow {
+    display: grid;
+    grid-template-columns: minmax(100px, 10vw) minmax(300px, 2fr) minmax(200px, 1fr) minmax(300px, 1.5fr);
+    /* 4-column grid for desktop[cite: 1, 2] */
+  }
+
+  .colId {
+    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .colTitle {
+    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    display: flex;
+    align-items: center;
+    padding: 2rem 4rem;
+  }
+
+  .colTags {
+    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .colImage {
+    height: 100%;
+  }
+
+  .imageWrapper {
+    height: 100%;
+    min-height: 200px;
+  }
+}
