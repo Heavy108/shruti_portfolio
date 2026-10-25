@@ -3,6 +3,7 @@ import Navbar from "../component/navbar/navbar";
 import Gallery from "@/component/homepage/gallery";
 import SelectedWorks from "@/component/homepage/selectedworks";
 import Capabilities from "@/component/homepage/Capabilities";
+import ChatSection from "@/component/homepage/chat";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Gallery/>
       <SelectedWorks/>
       <Capabilities/>
+      <ChatSection/>
     </div>
   );
 }
