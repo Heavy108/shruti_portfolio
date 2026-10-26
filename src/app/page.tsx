@@ -4,6 +4,8 @@ import Gallery from "@/component/homepage/gallery";
 import SelectedWorks from "@/component/homepage/selectedworks";
 import Capabilities from "@/component/homepage/Capabilities";
 import ChatSection from "@/component/homepage/chat";
+import Footer from "@/component/homepage/footer";
+import AnimatedTextStrips from "@/component/homepage/strip";
 
 export default function Home() {
   return (
@@ -12,8 +14,11 @@ export default function Home() {
       <Hero/>
       <Gallery/>
       <SelectedWorks/>
+      <AnimatedTextStrips/>
       <Capabilities/>
+
       <ChatSection/>
+      <Footer/>
     </div>
   );
 }

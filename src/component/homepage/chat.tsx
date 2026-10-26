@@ -34,7 +34,8 @@ export default function ChatSection(): React.JSX.Element {
             <Image
               src={teapotsImg}
               alt="Black and white teapots on illuminated shelves"
-              fill
+              width={2560}
+              height={800}
               className={styles.image}
               sizes="(max-width: 768px) 100vw, 60vw"
             />
