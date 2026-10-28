@@ -83,7 +83,7 @@
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 450px; /* Fixed height for mobile[cite: 6] */
+  /* height: 450px;  */
   background-color: #000; 
 }
 

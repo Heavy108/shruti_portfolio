@@ -103,7 +103,6 @@ width: 100%;
 
 .logoImage {
   object-fit: contain;
-  /* object-position: center; */
 }
 
 /* Tablet and mobile */
@@ -147,10 +146,19 @@ width: 100%;
   .logoCol {
     min-height: 125px;
     padding: 1.5rem 1rem;
+    
   }
 
   .logoWrapper {
     width: min(65%, 260px);
+    
+  }
+  .logoImage {
+      object-position: center;
+
+  }
+  .logoCol {
+    justify-content: center;
   }
 }
 
@@ -171,6 +179,7 @@ width: 100%;
 
   .logoCol {
     padding: 1.5rem 3rem;
+    justify-content: center;
   }
 
   .logoWrapper {
