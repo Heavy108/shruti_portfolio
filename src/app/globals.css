@@ -24,3 +24,28 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Firefox */
+/* Firefox - apply to all scrolling elements */
+* {
+  scrollbar-width: medium;
+  scrollbar-color: #34211B #A0BDDB; 
+}
+
+/* WebKit Browsers (Chrome, Safari, Edge) - apply to all elements */
+*::-webkit-scrollbar {
+  width: 12px; 
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #34211B; 
+  border-radius: 20px; 
+  border: 3px solid #A0BDDB; 
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #34211B; 
+}
