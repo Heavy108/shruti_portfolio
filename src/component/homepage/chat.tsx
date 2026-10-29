@@ -43,5 +43,5 @@ export default function ChatSection(): React.JSX.Element {
         </div>
       </div>
     </section>
-  ); //[cite: 4, 5, 6]
+  ); 
 }
