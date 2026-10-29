@@ -1,43 +1,29 @@
 .caseStudy {
   --blue: #a0bddb;
-  --blue-soft: #7C9FC3;
+  --blue-soft: #7c9fc3;
   --brown: #34211b;
   --cream: #e6ddd8;
   --muted-link: #8ea7c1;
-  --line: #6A0C06;
-  --gutter: 1.25rem;
-  --pad: 1.25rem;
+  /* Same line colour as the homepage Chat section */
+  --line: rgba(106, 12, 6, 0.25);
+  /* Same gutter column as the Chat section, so the vertical lines align */
+  --gutter: minmax(100px, 10vw);
+  --gutter-px: max(100px, 10vw); /* the same width, usable in calc() */
+  --inset: 1.5rem; /* content padding beside the line (4rem from tablet up) */
+
+  /* Type scale, matched to the Chat section */
+  --fs-label: 0.75rem; /* taglines, live link */
+  --fs-meta: 0.875rem; /* metadata labels, values, pills */
+  --fs-body: clamp(0.9375rem, 0.875rem + 0.25vw, 1.125rem); /* paragraphs */
+  --fs-headline: clamp(1.5rem, 1rem + 2vw, 2.75rem); /* banner headline */
+  --fs-display: clamp(4rem, 8vw, 7rem); /* "Overview", same as "Chat?" */
+  --tracking-caps: 0.15em;
 
   width: 100%;
   display: flex;
   flex-direction: column;
   background: var(--blue);
   color: var(--brown);
-}
-
-/* Continuous vertical gutter lines */
-.lined {
-  position: relative;
-}
-
-.lined::before,
-.lined::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--line);
-  pointer-events: none;
-  z-index: 7;
-}
-
-.lined::before {
-  left: var(--gutter);
-}
-
-.lined::after {
-  right: var(--gutter);
 }
 
 /* 1. Hero + banner */
@@ -55,12 +41,12 @@
 .banner {
   background: var(--brown);
   color: var(--cream);
-  padding: 2rem var(--pad) 1.75rem;
+  padding: 2.5rem var(--inset);
 }
 
 .bannerHeadline {
   margin: 0 0 1.5rem;
-  font-size: clamp(1.4rem, 3vw, 3rem);
+  font-size: var(--fs-headline);
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -72,9 +58,9 @@
 
 .liveLink {
   color: var(--muted-link);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -88,39 +74,58 @@
   color: var(--cream);
 }
 
-/* 2. Overview */
+/* 2–5. Grid rows: same structure as the Chat section */
 .blueSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
   border-bottom: 1px solid var(--line);
 }
 
+.row:last-child {
+  border-bottom: none;
+}
+
+.gutter {
+  display: none; /* hidden on mobile, like .emptyBox */
+}
+
+.cell {
+  min-width: 0;
+}
+
+/* Overview */
 .overview {
   display: grid;
   gap: 2.5rem;
-  padding: 3rem calc(var(--gutter) + var(--pad));
-  border-bottom: 1px solid var(--line);
+  padding: 2.5rem var(--inset);
 }
 
 .tagline {
   display: block;
-  margin-bottom: 0.75rem;
-  font-size: 0.625rem;
+  margin-bottom: 0.5rem;
+  font-size: var(--fs-label);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
 }
 
 .overviewTitle {
-  margin: 0 0 1.25rem;
-  font-size: clamp(3rem, 6vw, 6.5rem);
+  margin: 0 0 1.5rem;
+  font-size: var(--fs-display);
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 1;
   letter-spacing: -0.05em;
 }
 
 .overviewBody {
   margin: 0;
   max-width: 36ch;
-  font-size: clamp(0.875rem, 1.1vw, 1.1rem);
+  font-size: var(--fs-body);
   line-height: 1.5;
 }
 
@@ -135,7 +140,8 @@
   align-items: center;
   padding: 0.9rem 0;
   border-bottom: 1px solid var(--line);
-  font-size: 0.8rem;
+  font-size: var(--fs-meta);
+  line-height: 1.3;
 }
 
 .metaLabel {
@@ -170,69 +176,77 @@
   object-fit: contain;
 }
 
+/* Monospace renders optically larger; nudge it down to match the sans */
 .mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
 }
 
-/* 3. Featured image, edge to edge between the gutter lines */
-.featured {
-  padding: 2.5rem var(--gutter);
+/* Image frames: the image fills the cell, edge to edge between the lines */
+.frame {
+  padding-block: 2.5rem;
 }
 
-.featuredImage {
-  position: relative;
-  z-index: 2;
+.frameImage {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* 4. Gallery */
 .gallery {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  /* padding: 0.75rem; */
-  /* background: #e8eef5; */
+  gap: 1.5rem;
 }
 
-.galleryImage {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+/* --- Tablet up: gutters appear, same breakpoint as the Chat section --- */
+@media only screen and (min-width: 768px) {
+  .caseStudy {
+    --inset: 4rem;
+  }
 
-/* 5. Showcase */
-.showcase {
-  display: flex;
-  flex-direction: column;
-}
+  .row {
+    display: grid;
+    grid-template-columns: var(--gutter) minmax(0, 1fr) var(--gutter);
+  }
 
-.showcaseImage {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+  .gutter {
+    display: block;
+    border-right: 1px solid var(--line);
+  }
 
-.band {
-  height: clamp(2rem, 7.5vw, 6rem);
-  background: var(--blue);
-  border-block: 1px solid var(--line);
+  .gutterRight {
+    border-right: none;
+    border-left: 1px solid var(--line);
+  }
+
+  /* text lines up with the content column, like "Chat?" */
+  .banner {
+    padding-left: calc(var(--gutter-px) + var(--inset));
+  }
+
+  .overview {
+    padding: 4.5rem var(--inset) 5rem;
+  }
+
+  .frame {
+    padding-block: 7.5vw;
+  }
+
+  .gallery {
+    gap: 4rem;
+  }
 }
 
 /* --- Desktop --- */
-@media (min-width: 1024px) {
-  .caseStudy {
-    --gutter: 11vw;
-    --pad: 2rem;
-  }
-
+@media only screen and (min-width: 1024px) {
   .banner {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 75%;
-    padding: 3.5vw 4vw 2.5vw 8.3vw;
+    padding-block: 3.5vw 2.5vw;
+    padding-right: 4vw;
   }
 
   .bannerHeadline {
@@ -242,19 +256,9 @@
   .overview {
     grid-template-columns: 1fr 1fr;
     column-gap: 3rem;
-    padding: 4.5rem calc(var(--gutter) + var(--pad)) 5rem;
   }
 
   .meta {
     margin-top: 1.5rem;
-  }
-
-  .featured {
-    padding-block: 7.5vw;
-  }
-
-  .gallery {
-    gap: 4rem;
-    /* padding: 1.5rem; */
   }
 }

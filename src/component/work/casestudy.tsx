@@ -1,4 +1,4 @@
-import { Fragment, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import Image, { type StaticImageData } from "next/image";
 import styles from "@/css/work/casestudy.module.css";
 
@@ -16,7 +16,35 @@ type MetaItem = {
   mono?: boolean;
 };
 
-/** A plain src, or { src, band: true } to insert a blue spacer band above it */
+/** Images inside the gutter lines are ~80vw wide from tablet up */
+const FRAME_SIZES = "(min-width: 768px) 80vw, 100vw";
+
+/**
+ * One row of the page grid, built the same way as the homepage Chat section:
+ * empty gutter cells carry the vertical lines, the row carries the horizontal one.
+ */
+function Row({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={styles.row}>
+      <div className={styles.gutter} aria-hidden="true" />
+      <div className={[styles.cell, className].filter(Boolean).join(" ")}>
+        {children}
+      </div>
+      <div
+        className={`${styles.gutter} ${styles.gutterRight}`}
+        aria-hidden="true"
+      />
+    </div>
+  );
+}
+
+/** A plain src, or { src } (the old `band` flag is accepted but no longer needed) */
 type ShowcaseImage = Img | { src: Img; band?: boolean };
 
 export type CaseStudyProps = {
@@ -91,9 +119,9 @@ export default function CaseStudy({
         </div>
       </header>
 
-      {/* 2 & 3. Blue section with continuous gutter lines */}
-      <section className={`${styles.blueSection} ${styles.lined}`}>
-        <div className={styles.overview}>
+      {/* 2–5. Blue section: every image sits between the gutter lines */}
+      <section className={styles.blueSection}>
+        <Row className={styles.overview}>
           <div>
             <span className={styles.tagline}>Project</span>
             <h2 className={styles.overviewTitle}>Overview</h2>
@@ -142,59 +170,52 @@ export default function CaseStudy({
               );
             })}
           </dl>
-        </div>
+        </Row>
 
-        <div className={styles.featured}>
+        {/* 3. Featured image */}
+        <Row className={styles.frame}>
           <Image
             src={borderedImage}
             alt={`${title} project showcase`}
             {...dims(borderedImage)}
-            sizes="(min-width: 1024px) 78vw, 100vw"
-            className={styles.featuredImage}
+            sizes={FRAME_SIZES}
+            className={styles.frameImage}
           />
-        </div>
-      </section>
+        </Row>
 
-      {/* 4. UI gallery: one full image per row */}
-      {loopImages.length > 0 && (
-        <section className={styles.gallery}>
-          {loopImages.map((src, i) => (
-            <Image
-              key={i}
-              src={src}
-              alt={`${title} interface detail ${i + 1}`}
-              {...dims(src)}
-              sizes="100vw"
-              className={styles.galleryImage}
-            />
-          ))}
-        </section>
-      )}
+        {/* 4. UI gallery: one image per row, same frame */}
+        {loopImages.length > 0 && (
+          <Row className={`${styles.frame} ${styles.gallery}`}>
+            {loopImages.map((src, i) => (
+              <Image
+                key={i}
+                src={src}
+                alt={`${title} interface detail ${i + 1}`}
+                {...dims(src)}
+                sizes={FRAME_SIZES}
+                className={styles.frameImage}
+              />
+            ))}
+          </Row>
+        )}
 
-      {/* 5. Full-width showcase images, with optional blue bands between */}
-      <section className={styles.showcase}>
+        {/* 5. Showcase images, each in its own frame */}
         {bottomImages.map((item, i) => {
-          const { src, band } =
-            // a static import has width/height; the { src, band } wrapper doesn't
+          // a static import has width/height; the { src, band } wrapper doesn't
+          const src =
             typeof item === "object" && !("width" in item)
-              ? (item as { src: Img; band?: boolean })
-              : { src: item as Img, band: false };
+              ? (item as { src: Img }).src
+              : (item as Img);
           return (
-            <Fragment key={i}>
-              {band && (
-                <div
-                  className={`${styles.band} ${styles.lined}`}
-                  aria-hidden="true"
-                />
-              )}
+            <Row key={i} className={styles.frame}>
               <Image
                 src={src}
                 alt={`${title} showcase ${i + 1}`}
                 {...dims(src, 1920, 1080)}
-                sizes="100vw"
-                className={styles.showcaseImage}
+                sizes={FRAME_SIZES}
+                className={styles.frameImage}
               />
-            </Fragment>
+            </Row>
           );
         })}
       </section>
