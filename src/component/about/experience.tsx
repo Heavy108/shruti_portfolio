@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "@/css/about/experience.module.css";
 import wiseImg from "@/assets/wise.png";
+import Link from "next/link";
 
 export default function ExperienceSection(): React.JSX.Element {
   return (
@@ -14,7 +15,14 @@ export default function ExperienceSection(): React.JSX.Element {
           <div className={styles.jobInfo}>
             <h4 className={styles.jobTitle}>Visual Communication Designer</h4>
             <span className={styles.companyInfo}>
-              What if Design - Remote - Full-time
+              <Link
+                href="https://whatifdesign.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                What if Design
+              </Link>
+              - Remote - Full-time
             </span>
           </div>
         </div>
@@ -24,7 +32,14 @@ export default function ExperienceSection(): React.JSX.Element {
           <div className={styles.jobInfo}>
             <h4 className={styles.jobTitle}>Textile Designer</h4>
             <span className={styles.companyInfo}>
-              Kriya Studio - Delhi - Full-time
+              <Link
+                href="https://kriyastudio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Kriya Studio
+              </Link>
+              - Delhi - Full-time
             </span>
           </div>
         </div>
@@ -34,7 +49,14 @@ export default function ExperienceSection(): React.JSX.Element {
           <div className={styles.jobInfo}>
             <h4 className={styles.jobTitle}>Textile Design Intern</h4>
             <span className={styles.companyInfo}>
-              Reliance Retail Limited - Kolkata - Internship
+              <Link
+                href="https://www.swadeshonline.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Swadesh
+              </Link>
+              - Kolkata - Internship
             </span>
           </div>
         </div>
@@ -44,7 +66,14 @@ export default function ExperienceSection(): React.JSX.Element {
           <div className={styles.jobInfo}>
             <h4 className={styles.jobTitle}>Graphic Design Intern</h4>
             <span className={styles.companyInfo}>
-              The Dee's Social - Remote - Internship
+              <Link
+                href="https://www.thedeesocial.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                The Dee's Social
+              </Link>
+              - Remote - Internship
             </span>
           </div>
         </div>
