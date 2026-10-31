@@ -34,6 +34,8 @@
   line-height: 1;
   letter-spacing: -0.05em;
   margin: 0;
+  color: #34211B;
+
 }
 
 .imageWrapper {
@@ -75,7 +77,7 @@
   margin: 0 0 1.5rem 0;
   letter-spacing: -0.02em;
   padding: 1.5rem;
-
+color: #34211B;
   border-bottom: 1px solid rgba(106, 12, 6, 0.50);
 
 }
@@ -102,7 +104,7 @@
   padding: 1rem 2rem;
   background: transparent;
   border: 1px solid #4a2e2a;
-  color: #4a2e2a;
+  color: #34211B;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.15em;
