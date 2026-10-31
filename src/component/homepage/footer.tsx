@@ -4,8 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/css/homepage/footer.module.css";
-
-// Replace with your actual footer logo graphic
 import footerLogo from "@/assets/logofooter.png";
 
 export default function Footer(): React.JSX.Element {
@@ -16,7 +14,7 @@ export default function Footer(): React.JSX.Element {
         <Link href="/" className={styles.navLink}>
           HOME
         </Link>
-        <Link href="/works" className={styles.navLink}>
+        <Link href="/work" className={styles.navLink}>
           WORKS
         </Link>
         <Link href="/contact" className={styles.navLink}>
