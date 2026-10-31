@@ -1,13 +1,44 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import styles from "@/css/about/thisisme.module.css";
 import worksImg from "@/assets/me.png";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function ThisIsMe(): React.JSX.Element {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useGSAP(
+    () => {
+      const words = gsap.utils.toArray(`.${styles.animWord}`);
+
+      // Set initial faded color (using a faded variant of your #34211B text color)
+      gsap.set(words, { color: "rgba(52, 33, 27, 0.2)" });
+
+      gsap.to(words, {
+        color: "#34211B", // Your target text color
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 80%", // Starts animating when the heading is 80% down the viewport
+          end: "bottom 50%", // Ends when it reaches the middle
+          scrub: true,
+        },
+      });
+    },
+    { scope: containerRef },
+  ); // Scope ensures GSAP only targets elements inside this component
+
+  const headingText = "Your friendly neighbourhood designer.";
+
   return (
-    <section className={styles.container}>
+    <section ref={containerRef} className={styles.container}>
       <div className={styles.leftColumn}>
         <div className={styles.leftHeader}>
           <span className={styles.tagline}>HI, I'M SHRUTI!</span>
@@ -26,9 +57,15 @@ export default function ThisIsMe(): React.JSX.Element {
 
       <div className={styles.rightColumn}>
         <div className={styles.bioSection}>
-          <h3 className={styles.subHeading}>
-            Your friendly neighbourhood designer.
+          {/* Animated Heading */}
+          <h3 ref={headingRef} className={styles.subHeading}>
+            {headingText.split(" ").map((word, i) => (
+              <span key={i} className={styles.animWord}>
+                {word}
+              </span>
+            ))}
           </h3>
+
           <div className={styles.bioText}>
             <p>
               I'm a 24-year-old Visual Communication Designer who loves making
@@ -151,7 +188,7 @@ export default function ThisIsMe(): React.JSX.Element {
                 >
                   <g opacity="0.7">
                     <path
-                      d="M3.54167 4.9585H4.25C4.62572 4.9585 4.98606 4.80924 5.25173 4.54356C5.51741 4.27789 5.66667 3.91755 5.66667 3.54183C5.66667 3.35397 5.74129 3.1738 5.87413 3.04096C6.00697 2.90812 6.18714 2.8335 6.375 2.8335H10.625C10.8129 2.8335 10.993 2.90812 11.1259 3.04096C11.2587 3.1738 11.3333 3.35397 11.3333 3.54183C11.3333 3.91755 11.4826 4.27789 11.7483 4.54356C12.0139 4.80924 12.3743 4.9585 12.75 4.9585H13.4583C13.8341 4.9585 14.1944 5.10775 14.4601 5.37343C14.7257 5.6391 14.875 5.99944 14.875 6.37516V12.7502C14.875 13.1259 14.7257 13.4862 14.4601 13.7519C14.1944 14.0176 13.8341 14.1668 13.4583 14.1668H3.54167C3.16594 14.1668 2.80561 14.0176 2.53993 13.7519C2.27426 13.4862 2.125 13.1259 2.125 12.7502V6.37516C2.125 5.99944 2.27426 5.6391 2.53993 5.37343C2.80561 5.10775 3.16594 4.9585 3.54167 4.9585Z"
+                      d="M3.54167 4.9585H4.25C4.62572 4.9585 4.98606 4.80924 5.25173 4.54356C5.51741 4.27789 5.66667 3.91755 5.66667 3.54183C5.66667 3.35397 5.74129 3.1738 5.87413 3.04096C6.00697 2.90812 6.18714 2.8335 6.375 2.8335H10.625C10.8129 2.8335 10.993 2.90812 11.1259 3.04096C11.2587 3.1738 11.3333 3.54183C11.3333 3.91755 11.4826 4.27789 11.7483 4.54356C12.0139 4.80924 12.3743 4.9585 12.75 4.9585H13.4583C13.8341 4.9585 14.1944 5.10775 14.4601 5.37343C14.7257 5.6391 14.875 5.99944 14.875 6.37516V12.7502C14.875 13.1259 14.7257 13.4862 14.4601 13.7519C14.1944 14.0176 13.8341 14.1668 13.4583 14.1668H3.54167C3.16594 14.1668 2.80561 14.0176 2.53993 13.7519C2.27426 13.4862 2.125 13.1259 2.125 12.7502V6.37516C2.125 5.99944 2.27426 5.6391 2.53993 5.37343C2.80561 5.10775 3.16594 4.9585 3.54167 4.9585Z"
                       strokeWidth="1.23958"
                       strokeLinecap="round"
                       strokeLinejoin="round"

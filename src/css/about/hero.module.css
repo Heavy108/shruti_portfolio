@@ -6,21 +6,12 @@
   border-top: 1px solid rgba(106, 12, 6, 0.25);
 }
 
-/* .leftGutter {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-} */
-
 .textContent {
-  /* grid-column: 2 / 3; */
   grid-row: 1 / 2;
-  /* Add padding to give it breathing room, especially at the bottom */
   padding: 3rem 1.5rem 2rem 1rem; 
   display: flex;
   flex-direction: column;
-  /* Push content to the bottom */
   justify-content: flex-end; 
-  /* Align content to the left */
   align-items: flex-start; 
   color: #34211B; 
 }
@@ -34,14 +25,14 @@
 }
 
 .heading {
-  font-size: clamp(3.5rem, 10vw, 18rem);
+  font-size: clamp(3.5rem, 12vw, 18rem);
   font-weight: 700;
   line-height: 0.85;
   letter-spacing: -0.05em;
   margin: 0;
   text-transform: lowercase; 
-  /* Ensures long words won't break the layout on very small screens */
   word-wrap: break-word; 
+
 }
 
 .imageWrapper {
@@ -49,13 +40,17 @@
   grid-row: 2 / 3;
   position: relative;
   width: 100%;
+  /* Provide a fallback height for mobile */
+  height: 50vh; 
   background-color: #000;
 }
 
 .image {
-  object-fit: contain;
+  /* Change to cover so it fills the available height without distorting */
+  object-fit: cover; 
   width: 100%;
-  height: auto;
+  /* Force the image to respect the wrapper's height */
+  height: 100%; 
 }
 
 /* --- DESKTOP GRID LAYOUT --- */
@@ -63,25 +58,23 @@
   .section {
     grid-template-columns: minmax(80px, 10vw) 1fr 50%;
     grid-template-rows: 1fr;
+    
+    height: calc(100vh - 75px); 
+    overflow: hidden; 
   }
 
-  /* .leftGutter {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  } */
-
   .textContent {
-    /* grid-column: 2 / 3;
-    grid-row: 1 / 2; */
-    /* padding: 4rem 2rem 3rem 0; */
-    /* border-right: 1px solid rgba(106, 12, 6, 0.25);  */
     justify-content: flex-end;
     align-items: flex-start;
+    padding-bottom: 4rem; 
   }
 
   .imageWrapper {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
-    height: 100%;
+    height: 100%; 
+  }
+  .heading{
+    margin-bottom: 3rem;
   }
 }

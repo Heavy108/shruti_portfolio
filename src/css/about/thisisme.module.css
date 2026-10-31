@@ -37,7 +37,10 @@
   color: #34211B;
 
 }
-
+.animWord {
+  display: inline-block;
+  margin-right: 0.25em; /* Spacing between the animated words */
+}
 .imageWrapper {
   position: relative;
   width: 100%;
