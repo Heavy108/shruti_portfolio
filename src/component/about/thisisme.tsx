@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "@/css/about/thisisme.module.css";
-import worksImg from "@/assets/workhero.png";
+import worksImg from "@/assets/me.png";
 
 export default function ThisIsMe(): React.JSX.Element {
   return (
@@ -31,27 +31,27 @@ export default function ThisIsMe(): React.JSX.Element {
           </h3>
           <div className={styles.bioText}>
             <p>
-              I'm a 25-year-old web developer based in Brisbane, Australia. My
-              path started in UX design, eventually graduating from QUT with a
-              Bachelor of Design in Interaction Design but somewhere between
-              wireframing a button and wondering how it actually worked, I fell
-              down the development rabbit hole and never climbed back out. These
-              days I spend most of my time building things in the browser with a
-              designer's eye for detail and a developer's stubbornness about
-              getting the spacing right. When I'm not writing code, I'm shooting
-              video or making music, which keeps the creative side of my brain
-              from getting jealous.
+              I'm a 24-year-old Visual Communication Designer who loves making
+              things look good, make sense, and tell a story. My journey has
+              taken me across branding, website design, presentations, and
+              visual storytelling, with a little bit of everything in between. I
+              enjoy exploring ideas, playing around with layouts, obsessing over
+              typography, and finding ways to make even the most complicated
+              information look interesting. Somewhere along the way, I also fell
+              down the rabbit hole of motion graphics and animation, and I'm
+              still exploring my way through it.
             </p>
             <p>
-              I build with HTML, CSS, JavaScript, PHP, jQuery and React — React
-              being my current favourite, running websites on a NextJS + Payload
-              framework. Before development claimed me, years in the Adobe suite
-              (Photoshop, Illustrator, InDesign, Premiere Pro, Lightroom) gave
-              me a solid foundation in visual craft and my UX background means I
-              can run user research, build wireframes and prototypes and test my
-              way to something that actually works for real people. Outside the
-              browser, I edit video in DaVinci Resolve and take my beloved
-              Fujifilm X-E4 pretty much everywhere.
+              I work primarily with Figma and Adobe Creative Suite, creating
+              visual experiences for brands across technology, climate tech, and
+              sustainability. I love experimenting with different visual styles,
+              learning new tools, and occasionally spending way too much time
+              getting the spacing just right.
+            </p>
+            <p>
+              When I'm not designing, I'm usually cooking up something,
+              painting, exploring creative inspiration, or looking for my next
+              little obsession.
             </p>
           </div>
           <button className={styles.button}>GET IN TOUCH</button>
@@ -161,7 +161,7 @@ export default function ThisIsMe(): React.JSX.Element {
                       d="M6.375 9.2085C6.375 9.77208 6.59888 10.3126 6.9974 10.7111C7.39591 11.1096 7.93641 11.3335 8.5 11.3335C9.06358 11.3335 9.60409 11.1096 10.0026 10.7111C10.4011 10.3126 10.625 9.77208 10.625 9.2085C10.625 8.64491 10.4011 8.10441 10.0026 7.70589C9.60409 7.30738 9.06358 7.0835 8.5 7.0835C7.93641 7.0835 7.39591 7.30738 6.9974 7.70589C6.59888 8.10441 6.375 8.64491 6.375 9.2085Z"
                       strokeWidth="1.23958"
                       strokeLinecap="round"
-                      strokeLinejoin ="round"
+                      strokeLinejoin="round"
                       stroke="#34211B"
                     />
                   </g>

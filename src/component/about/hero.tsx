@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "@/css/about/hero.module.css";
 
-import worksImg from "@/assets/workhero.png";
+import worksImg from "@/assets/abouthero.png";
 
 export default function AboutSection(): React.JSX.Element {
   return (
