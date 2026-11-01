@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "@/css/work/rest.module.css";
-
+import Link from "next/link";
 import hydgenmain from "@/assets/hydgen.png";
 import keplermain from "@/assets/keplermain.png";
 import cleantechmain from "@/assets/cleantechmain.png";
@@ -154,12 +154,14 @@ export default function TheRest() {
                     ))}
                   </div>
                 </div>
-                <button className={styles.viewCaseStudy}>
-                  <span className={styles.rollText}>
-                    <span>VIEW CASE STUDY</span>
-                    <span aria-hidden="true">VIEW CASE STUDY</span>
-                  </span>
-                </button>
+                <Link href="/comming_soon">
+                  <button className={styles.viewCaseStudy}>
+                    <span className={styles.rollText}>
+                      <span>VIEW CASE STUDY</span>
+                      <span aria-hidden="true">VIEW CASE STUDY</span>
+                    </span>
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

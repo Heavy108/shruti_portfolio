@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "@/css/work/workhero.module.css";
 
-import worksImg from "@/assets/workhero.png";
+import worksImg from "@/assets/work.png";
 
 export default function WorksSection(): React.JSX.Element {
   return (

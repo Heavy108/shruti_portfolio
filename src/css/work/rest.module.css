@@ -102,8 +102,7 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-right: -1px;
-  margin-bottom: -1px;
+  margin:0.125rem;
 }
 
 .filterButton:hover:not(.activeFilter) {
@@ -132,10 +131,17 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   background-color: #D3D3D3;
+  overflow: hidden;
+
 }
 
 .projectImage {
   object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.projectImage:hover {
+  transform: scale(1.05);
 }
 
 .cardFooter {

@@ -21,6 +21,7 @@ import keplermain from "@/assets/keplermain.png";
 import cleantechmain from "@/assets/cleantechmain.png";
 import ammobiamain from "@/assets/amobiamain.png";
 import nexusmain from "@/assets/nexusmain.png";
+import Link from "next/link";
 
 interface Project {
   id: number;
@@ -255,13 +256,14 @@ export default function SelectedWorks(): React.JSX.Element {
                 </span>
               ))}
             </div>
-
-            <button type="button" className={styles.learnMore}>
-              <span className={styles.rollText}>
-                <span>LEARN MORE &gt;</span>
-                <span aria-hidden="true">LEARN MORE &gt;</span>
-              </span>
-            </button>
+            <Link href="/comming_soon">
+              <button type="button" className={styles.learnMore}>
+                <span className={styles.rollText}>
+                  <span>LEARN MORE &gt;</span>
+                  <span aria-hidden="true">LEARN MORE &gt;</span>
+                </span>
+              </button>
+            </Link>
           </div>
 
           <div className={styles.mainImageWrapper}>
