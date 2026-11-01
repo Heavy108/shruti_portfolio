@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/component/themeprovider";
-
+import TransationProvider from "@/component/TransitionProvider";
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
@@ -29,7 +29,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
           enableSystem
         >
-          {children}
+          <TransationProvider>
+            {children}
+          </TransationProvider>
         </ThemeProvider>
       </body>
     </html>
