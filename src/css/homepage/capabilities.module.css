@@ -1,16 +1,17 @@
 .section {
   width: 100%;
-  background-color: #A0BDDB; /* Light blue background[cite: 1, 2, 3] */
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
-  color: #34211B; /* Dark brown text[cite: 1, 2, 3] */
-  border-top: 1px solid rgba(106, 12, 6, 0.25); /* Thin reddish grid lines[cite: 1, 2, 3] */
+  color: var(--foreground);
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Header Area */
 .headerRow {
   display: flex;
-  border-bottom: 1px solid rgba(106, 12, 6, 0.25);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .emptyBox {
@@ -48,7 +49,7 @@
 .capabilityRow {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid rgba(106, 12, 6, 0.25);
+  border-bottom: 1px solid var(--border-color);
 } /* Stacked layout for mobile[cite: 3] */
 
 .colId {
@@ -109,7 +110,7 @@
 
   .emptyBox {
     display: block;
-    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    border-right: 1px solid var(--border-color);
   }
 
   .headerContent {
@@ -123,7 +124,7 @@
   }
 
   .colId {
-    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    border-right: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,14 +132,14 @@
   }
 
   .colTitle {
-    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    border-right: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     padding: 1rem ;
   }
 
   .colTags {
-    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    border-right: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     padding: 1rem;

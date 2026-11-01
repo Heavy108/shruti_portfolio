@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "@/css/work/casestudy.module.css";
 
 // 1. Import your images from the assets folder
 import niraHero from "@/assets/casestudy/nira/hero.png";
@@ -14,9 +15,9 @@ export const projectsData = {
     heroImage: niraHero,
     bannerHeadline: (
       <>
-        <span style={{ color: "#A0BDDB" }}>Modular technology for </span>
+        <span className={styles.highlight}>Modular technology for </span>
         low-carbon
-        <br /> ammonia <span style={{ color: "#A0BDDB" }}>production.</span>
+        <br /> ammonia <span className={styles.highlight}>production.</span>
       </>
     ),
     liveLink: "https://nira.example.com",

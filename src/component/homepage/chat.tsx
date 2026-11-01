@@ -26,7 +26,10 @@ export default function ChatSection(): React.JSX.Element {
           <div className={styles.textContent}>
             <p>Got a project in mind? I'd love to hear about it.</p>
             <button type="button" className={styles.contactBtn}>
-              CONTACT ME
+              <span className={styles.rollText}>
+                <span>CONTACT ME</span>
+                <span aria-hidden="true">CONTACT ME</span>
+              </span>
             </button>
           </div>
 

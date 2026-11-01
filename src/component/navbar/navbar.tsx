@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "@/css/navbar/navbar.module.css";
 import logo from "@/assets/logo.png";
+import ThemeToggle from "../themetoggle";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,36 +24,49 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className={styles.desktopMenu}>
+          {/* Put the toggle inside the desktop menu wrapper! */}
+          <ThemeToggle />
+
+          <span className={styles.separator}>/</span>
+          <Link href="/about" className={styles.navLink}>
+            ABOUT
+          </Link>
           <span className={styles.separator}>/</span>
           <Link href="/work" className={styles.navLink}>
             WORK
           </Link>
           <span className={styles.separator}>/</span>
           <Link href="/contact" className={styles.contactButton}>
-            CONTACT
+            <span className={styles.rollText}>
+              <span>CONTACT</span>
+              <span aria-hidden="true">CONTACT</span>
+            </span>
           </Link>
         </div>
 
-        {/* Mobile Hamburger Button */}
-        <button
-          className={styles.mobileMenuButton}
-          onClick={toggleMenu}
-          aria-label="Open Menu"
-        >
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
+        {/* Mobile & Tablet Actions (< 1200px) */}
+        <div className={styles.mobileActions}>
+          <ThemeToggle />
+          <button
+            className={styles.mobileMenuButton}
+            onClick={toggleMenu}
+            aria-label="Open Menu"
           >
-            <line x1="4" y1="8" x2="20" y2="8"></line>
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-            <line x1="4" y1="16" x2="20" y2="16"></line>
-          </svg>
-        </button>
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            >
+              <line x1="4" y1="8" x2="20" y2="8"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="16" x2="20" y2="16"></line>
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Sidebar */}
@@ -60,6 +74,9 @@ export default function Navbar() {
         className={`${styles.mobileSidebar} ${isMobileMenuOpen ? styles.open : ""}`}
       >
         <div className={styles.sidebarHeader}>
+          {/* Add the toggle to the mobile menu too! */}
+          <ThemeToggle />
+
           <button
             className={styles.closeButton}
             onClick={closeMenu}

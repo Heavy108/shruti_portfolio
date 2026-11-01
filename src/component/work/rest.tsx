@@ -155,7 +155,10 @@ export default function TheRest() {
                   </div>
                 </div>
                 <button className={styles.viewCaseStudy}>
-                  VIEW CASE STUDY
+                  <span className={styles.rollText}>
+                    <span>VIEW CASE STUDY</span>
+                    <span aria-hidden="true">VIEW CASE STUDY</span>
+                  </span>
                 </button>
               </div>
             </div>

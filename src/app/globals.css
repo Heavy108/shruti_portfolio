@@ -1,51 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Light Theme (Default) */
+:root,
+:root.light,
+[data-theme="light"] {
+  --background: #A0BDDB; /* Soft blue background */
+  --foreground: #34211B; /* Dark brown text */
+  --border-color: rgba(106, 12, 6, 0.25);
+  --reverse-bg: #34211B;
+  --reverse-fg: #A0BDDB;
+  --card-bg: #34211B;
+  --card-fg: #D4C9C3;
+  --tag-border: rgba(106, 12, 6, 0.25);
+  --input-placeholder: rgba(52, 33, 27, 0.5);
+  --footer-bg: #34211B;
+  --footer-fg: #A0BDDB;
+  --footer-border: rgba(160, 189, 219, 0.4);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark Theme */
+.dark,
+:root.dark,
+[data-theme="dark"] {
+  --background: #1c120f; /* Warm dark espresso */
+  --foreground: #A0BDDB; /* Soft blue text */
+  --border-color: rgba(160, 189, 219, 0.22);
+  --reverse-bg: #A0BDDB;
+  --reverse-fg: #1c120f;
+  --card-bg: #A0BDDB;
+  --card-fg: #1c120f;
+  --tag-border: rgba(160, 189, 219, 0.3);
+  --input-placeholder: rgba(160, 189, 219, 0.5);
+  --footer-bg: #A0BDDB;
+  --footer-fg: #34211B;
+  --footer-border: rgba(106, 12, 6, 0.25);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base Body Styles */
 body {
-  background: var(--background);
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+
+/* Scrollbar Styles */
 /* Firefox */
-/* Firefox - apply to all scrolling elements */
 * {
   scrollbar-width: medium;
-  scrollbar-color: #34211B #A0BDDB; 
+  scrollbar-color: var(--foreground) var(--background); 
 }
 
-/* WebKit Browsers (Chrome, Safari, Edge) - apply to all elements */
+/* WebKit Browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar,
 *::-webkit-scrollbar {
   width: 12px; 
 }
 
+::-webkit-scrollbar-track,
 *::-webkit-scrollbar-track {
-  background: transparent; 
+  background: var(--background); 
 }
 
+::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar-thumb {
-  background-color: #34211B; 
+  background-color: var(--foreground); 
   border-radius: 20px; 
-  border: 3px solid #A0BDDB; 
+  border: 3px solid var(--background); 
 }
 
+::-webkit-scrollbar-thumb:hover,
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #34211B; 
+  background-color: var(--foreground); 
+  opacity: 0.85;
+}
+
+/* Dark theme scrollbar overrides for full browser compatibility */
+.dark,
+.dark * {
+  scrollbar-color: #A0BDDB #1c120f;
+}
+
+.dark::-webkit-scrollbar-track,
+.dark *::-webkit-scrollbar-track {
+  background: #1c120f;
+}
+
+.dark::-webkit-scrollbar-thumb,
+.dark *::-webkit-scrollbar-thumb {
+  background-color: #A0BDDB;
+  border: 3px solid #1c120f;
 }

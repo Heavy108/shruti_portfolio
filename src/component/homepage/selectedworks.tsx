@@ -257,7 +257,10 @@ export default function SelectedWorks(): React.JSX.Element {
             </div>
 
             <button type="button" className={styles.learnMore}>
-              LEARN MORE &gt;
+              <span className={styles.rollText}>
+                <span>LEARN MORE &gt;</span>
+                <span aria-hidden="true">LEARN MORE &gt;</span>
+              </span>
             </button>
           </div>
 

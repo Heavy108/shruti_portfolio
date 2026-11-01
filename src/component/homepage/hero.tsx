@@ -29,7 +29,12 @@ export default function Hero() {
               long on something most people probably won't notice.
             </p>
           </div>
-          <button className={styles.button}>Learn More</button>
+          <button className={styles.button}>
+            <span className={styles.rollText}>
+              <span>Learn More</span>
+              <span aria-hidden="true">Learn More</span>
+            </span>
+          </button>
         </div>
 
         <div className={styles.imageWrapper}>

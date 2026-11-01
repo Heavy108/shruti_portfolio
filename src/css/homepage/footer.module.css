@@ -1,16 +1,17 @@
 .footer {
   width: 100%;
-  background-color: #34211B;
-  color: #A0BDDB;
-  border: 1px solid rgba(160, 189, 219, 0.55);
+  background-color: var(--footer-bg);
+  color: var(--footer-fg);
+  border: 1px solid var(--footer-border);
   box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Top navigation */
 .navRow {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-bottom: 1px solid rgba(160, 189, 219, 0.55);
+  border-bottom: 1px solid var(--footer-border);
 }
 
 .navLink {
@@ -19,12 +20,12 @@
   justify-content: center;
   min-height: 84px;
   padding: 1rem;
-  color: #A0BDDB;
+  color: var(--footer-fg);
   text-decoration: none;
   font-size: 0.7rem;
   font-weight: 400;
   letter-spacing: 0.08em;
-  border-right: 1px solid rgba(160, 189, 219, 0.55);
+  border-right: 1px solid var(--footer-border);
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -33,8 +34,8 @@
 }
 
 .navLink:hover {
-  background-color: #A0BDDB;
-  color: #34211B;
+  background-color: var(--footer-fg);
+  color: var(--footer-bg);
 }
 
 /* Bottom section */
@@ -50,11 +51,11 @@
   justify-content: center;
   gap: 2rem;
   padding: 2rem 3rem;
-  border-right: 1px solid rgba(160, 189, 219, 0.55);
+  border-right: 1px solid var(--footer-border);
 }
 
 .socialsHeading {
-  color: #A0BDDB;
+  color: var(--footer-fg);
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -75,7 +76,7 @@ width: 100%;
   /* display: inline-flex; */
   align-items: center;
   gap: 0.8rem;
-  color: #A0BDDB;
+  color: var(--footer-fg);
   text-decoration: none;
   font-size: 0.7rem;
   font-weight: 400;
@@ -103,6 +104,11 @@ width: 100%;
 
 .logoImage {
   object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+:global(.dark) .logoImage {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(18%) saturate(1210%) hue-rotate(334deg) brightness(94%) contrast(92%);
 }
 
 /* Tablet and mobile */
@@ -123,7 +129,7 @@ width: 100%;
     padding: 1.5rem 1.25rem;
     gap: 1.5rem;
     border-right: none;
-    border-bottom: 1px solid rgba(160, 189, 219, 0.55);
+    border-bottom: 1px solid var(--footer-border);
   }
 
   .socialLinks {

@@ -18,11 +18,11 @@ export default function ThisIsMe(): React.JSX.Element {
     () => {
       const words = gsap.utils.toArray(`.${styles.animWord}`);
 
-      // Set initial faded color (using a faded variant of your #34211B text color)
-      gsap.set(words, { color: "rgba(52, 33, 27, 0.2)" });
+      // Set initial faded opacity (works dynamically in both light and dark mode)
+      gsap.set(words, { opacity: 0.25 });
 
       gsap.to(words, {
-        color: "#34211B", // Your target text color
+        opacity: 1,
         stagger: 0.1,
         scrollTrigger: {
           trigger: headingRef.current,
@@ -91,7 +91,12 @@ export default function ThisIsMe(): React.JSX.Element {
               little obsession.
             </p>
           </div>
-          <button className={styles.button}>GET IN TOUCH</button>
+          <button className={styles.button}>
+            <span className={styles.rollText}>
+              <span>GET IN TOUCH</span>
+              <span aria-hidden="true">GET IN TOUCH</span>
+            </span>
+          </button>
         </div>
 
         <div className={styles.toolkitSection}>

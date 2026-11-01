@@ -191,11 +191,22 @@ export default function Contact(): React.JSX.Element {
               className={styles.submitBtn}
               disabled={status === "loading" || status === "success"}
             >
-              {status === "loading"
-                ? "SENDING..."
-                : status === "success"
-                  ? "SENT SUCCESSFULLY"
-                  : "SUBMIT"}
+              <span className={styles.rollText}>
+                <span>
+                  {status === "loading"
+                    ? "SENDING..."
+                    : status === "success"
+                      ? "SENT SUCCESSFULLY"
+                      : "SUBMIT"}
+                </span>
+                <span aria-hidden="true">
+                  {status === "loading"
+                    ? "SENDING..."
+                    : status === "success"
+                      ? "SENT SUCCESSFULLY"
+                      : "SUBMIT"}
+                </span>
+              </span>
             </button>
 
             {status === "error" && (

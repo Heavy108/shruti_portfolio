@@ -1,10 +1,10 @@
 .caseStudy {
-  --blue: #a0bddb;
+  --blue: var(--background);
   --blue-soft: #7C9FC3;
-  --brown: #34211b;
+  --brown: var(--foreground);
   --cream: #e6ddd8;
   --muted-link: #8ea7c1;
-  --line: #6A0C06;
+  --line: var(--border-color);
   --gutter: 1.25rem;
   --pad: 1.25rem;
 
@@ -13,6 +13,7 @@
   flex-direction: column;
   background: var(--blue);
   color: var(--brown);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Continuous vertical gutter lines */
@@ -53,9 +54,14 @@
 }
 
 .banner {
-  background: var(--brown);
-  color: var(--cream);
+  background: var(--reverse-bg);
+  color: #e6ddd8;
   padding: 2rem var(--pad) 1.75rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:global(.dark) .banner {
+  color: #1c120f;
 }
 
 .bannerHeadline {
@@ -64,20 +70,27 @@
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.02em;
+  color: inherit;
 }
 
 .highlight {
-  color: var(--blue);
+  color: #A0BDDB;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+:global(.dark) .highlight {
+  color: #1c120f;
+  opacity: 0.6;
 }
 
 .liveLink {
-  color: var(--muted-link);
+  color: #8ea7c1;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .liveLink span {
@@ -85,7 +98,17 @@
 }
 
 .liveLink:hover {
-  color: var(--cream);
+  color: #e6ddd8;
+}
+
+:global(.dark) .liveLink {
+  color: #1c120f;
+  opacity: 0.85;
+}
+
+:global(.dark) .liveLink:hover {
+  color: #1c120f;
+  opacity: 1;
 }
 
 /* 2. Overview */

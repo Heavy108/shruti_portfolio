@@ -3,7 +3,8 @@
   width: 100%;
   display: flex;
   flex-direction: column; /* Stack vertically on mobile */
-  background-color: #A0BDDB; /* Matches the theme background */
+  background-color: var(--background); /* Matches the theme background */
+  transition: background-color 0.3s ease;
 }
 
 .imageWrapperLeft,

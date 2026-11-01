@@ -2,8 +2,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #A0BDDB;
-  border-top: 1px solid rgba(106, 12, 6, 0.25);
+  background-color: var(--background);
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .gridRow, .gridMainRow {
@@ -12,15 +13,15 @@
 }
 
 .gridRow {
-  border-bottom: 1px solid rgba(106, 12, 6, 0.25);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .gutterLeft, .gutterLeftContinuous {
-  border-right: 1px solid rgba(106, 12, 6, 0.25);
+  border-right: 1px solid var(--border-color);
 }
 
 .gutterRight, .gutterRightContinuous {
-  border-left: 1px solid rgba(106, 12, 6, 0.25);
+  border-left: 1px solid var(--border-color);
 }
 
 .header, .toolbarInner, .cardsGrid {
@@ -33,7 +34,7 @@
 
 .tagline {
   display: block;
-  color: #34211B;
+  color: var(--foreground);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.126rem;
@@ -42,7 +43,7 @@
 }
 
 .heading {
-  color: #34211B;
+  color: var(--foreground);
   font-size: clamp(4rem, 8vw, 6rem);
   font-weight: 700;
   line-height: 1;
@@ -59,12 +60,12 @@
   display: flex;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid rgba(106, 12, 6, 0.25);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .searchIcon {
   font-size: 1.25rem;
-  color: #34211B;
+  color: var(--foreground);
   margin-right: 0.75rem;
 }
 
@@ -72,7 +73,7 @@
   background: transparent;
   border: none;
   outline: none;
-  color: #34211B;
+  color: var(--foreground);
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -81,7 +82,7 @@
 }
 
 .searchInput::placeholder {
-  color: rgba(52, 33, 27, 0.5);
+  color: var(--input-placeholder);
 }
 
 .filterContainer {
@@ -92,8 +93,8 @@
 
 .filterButton {
   background: transparent;
-  border: 1px solid rgba(106, 12, 6, 0.25);
-  color: #34211B;
+  border: 1px solid var(--border-color);
+  color: var(--foreground);
   padding: 0.5rem 1rem;
   font-size: 0.65rem;
   font-weight: 700;
@@ -105,9 +106,14 @@
   margin-bottom: -1px;
 }
 
+.filterButton:hover:not(.activeFilter) {
+  background-color: var(--reverse-bg);
+  color: var(--reverse-fg);
+}
+
 .activeFilter {
-  background-color: #34211B;
-  color: #A0BDDB;
+  background-color: var(--reverse-bg);
+  color: var(--reverse-fg);
 }
 
 .cardsGrid {
@@ -118,7 +124,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid rgba(106, 12, 6, 0.25);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .imageWrapper {
@@ -137,7 +143,7 @@
   flex-direction: column;
   padding: 1.5rem;
   gap: 1.5rem;
-  background-color: #A0BDDB;
+  background-color: var(--background);
 }
 
 .cardInfo {
@@ -149,7 +155,7 @@
 }
 
 .projectTitle {
-  color: #34211B;
+  color: var(--foreground);
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0;
@@ -165,8 +171,8 @@
 }
 
 .tag {
-  border: 1px solid rgba(106, 12, 6, 0.25);
-  color: #34211B;
+  border: 1px solid var(--border-color);
+  color: var(--foreground);
   padding: 0.25rem 0.5rem;
   font-size: 0.6rem;
   font-weight: 700;
@@ -176,9 +182,10 @@
 }
 
 .viewCaseStudy {
-  background-color: #34211B;
-  color: #A0BDDB;
-  border: none;
+  background-color: var(--reverse-bg);
+  color: var(--reverse-fg);
+  border: 1px solid var(--reverse-bg);
+  outline: none;
   padding: 0.75rem 1.5rem;
   font-size: 0.75rem;
   font-weight: 700;
@@ -186,12 +193,40 @@
   text-transform: uppercase;
   cursor: pointer;
   align-self: flex-start;
-  transition: background-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   white-space: nowrap;
 }
 
+.rollText {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.25em;
+  line-height: 1.25em;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.rollText span {
+  display: block;
+  height: 1.25em;
+  line-height: 1.25em;
+  white-space: nowrap;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.viewCaseStudy:hover .rollText span {
+  transform: translateY(-100%);
+}
+
 .viewCaseStudy:hover {
-  background-color: #1a100d;
+  background-color: var(--reverse-fg);
+  color: var(--reverse-bg);
+  border-color: var(--reverse-bg);
 }
 
 @media only screen and (min-width: 768px) {
@@ -242,7 +277,7 @@
 
   .searchContainer {
     border-bottom: none;
-    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    border-right: 1px solid var(--border-color);
   }
 
   .cardsGrid {
@@ -251,6 +286,6 @@
   }
 
   .card:nth-child(odd) {
-    border-right: 1px solid rgba(106, 12, 6, 0.25);
+    border-right: 1px solid var(--border-color);
   }
 }
