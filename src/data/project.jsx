@@ -33,7 +33,5 @@ export const projectsData = {
     bottomImages: [niraUi5],
   },
 
-  //   ammobia: {
 
-  //   },
 };
