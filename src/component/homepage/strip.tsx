@@ -1,5 +1,5 @@
 import styles from "@/css/homepage/strip.module.css";
-
+import Link from "next/link";
 // 1. Define the props interface
 interface AnimatedTextStripsProps {
   words?: string[]; // The '?' makes it optional
@@ -36,19 +36,18 @@ export default function AnimatedTextStrips({ words }: AnimatedTextStripsProps) {
   const repeatedText = Array.from({ length: repeatCount }, (_, i) => (
     <span key={i} className={styles.item}>
       <span className={styles.word}>{phrases[i % phrases.length]}</span>
-      <span className={styles.separator}>
-        {/* <SeparatorSVG /> */}
-        /
-      </span>
+      <span className={styles.separator}>{/* <SeparatorSVG /> */}/</span>
     </span>
   ));
 
   return (
     <div className={`${styles.strip} ${styles.strip1}`}>
-      <div className={`${styles["moving-text"]} ${styles["moving-left"]}`}>
-        {repeatedText}
-        {repeatedText}
-      </div>
+      <Link href="/work">
+        <div className={`${styles["moving-text"]} ${styles["moving-left"]}`}>
+          {repeatedText}
+          {repeatedText}
+        </div>
+      </Link>
     </div>
   );
 }

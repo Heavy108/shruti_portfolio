@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "@/css/about/thisisme.module.css";
 import worksImg from "@/assets/me.png";
-
+import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ThisIsMe(): React.JSX.Element {
@@ -91,39 +91,19 @@ export default function ThisIsMe(): React.JSX.Element {
               little obsession.
             </p>
           </div>
-          <button className={styles.button}>
-            <span className={styles.rollText}>
-              <span>GET IN TOUCH</span>
-              <span aria-hidden="true">GET IN TOUCH</span>
-            </span>
-          </button>
+          <Link href="/contact">
+            <button className={styles.button}>
+              <span className={styles.rollText}>
+                <span>GET IN TOUCH</span>
+                <span aria-hidden="true">GET IN TOUCH</span>
+              </span>
+            </button>
+          </Link>
         </div>
 
         <div className={styles.toolkitSection}>
           <span className={styles.tagline}>WHAT I WORK IN</span>
           <h4 className={styles.toolkitHeading}>Toolkit</h4>
-
-          <div className={styles.toolkitCategory}>
-            <div className={styles.categoryHeader}>
-              <span className={styles.icon}>&lt;/&gt;</span>
-              <span className={styles.categoryTitle}>01 — build</span>
-            </div>
-            <div className={styles.skills}>
-              <span>javascript</span>
-              <span>typescript</span>
-              <span>nextjs</span>
-              <span>react</span>
-              <span>html</span>
-              <span>css</span>
-              <span>tailwind</span>
-              <span>php</span>
-              <span>git</span>
-              <span>wordpress</span>
-              <span>payload</span>
-              <span>shopify</span>
-              <span>web scraping</span>
-            </div>
-          </div>
 
           <div className={styles.toolkitCategory}>
             <div className={styles.categoryHeader}>
@@ -167,7 +147,7 @@ export default function ThisIsMe(): React.JSX.Element {
                   </g>
                 </svg>
               </span>
-              <span className={styles.categoryTitle}>02 — design</span>
+              <span className={styles.categoryTitle}>01 — design</span>
             </div>
             <div className={styles.skills}>
               <span>figma</span>
@@ -178,43 +158,10 @@ export default function ThisIsMe(): React.JSX.Element {
               <span>wireframing</span>
               <span>prototyping</span>
               <span>usability testing</span>
-            </div>
-          </div>
-
-          <div className={styles.toolkitCategory}>
-            <div className={styles.categoryHeader}>
-              <span className={styles.icon}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="17"
-                  viewBox="0 0 17 17"
-                  fill="none"
-                >
-                  <g opacity="0.7">
-                    <path
-                      d="M3.54167 4.9585H4.25C4.62572 4.9585 4.98606 4.80924 5.25173 4.54356C5.51741 4.27789 5.66667 3.91755 5.66667 3.54183C5.66667 3.35397 5.74129 3.1738 5.87413 3.04096C6.00697 2.90812 6.18714 2.8335 6.375 2.8335H10.625C10.8129 2.8335 10.993 2.90812 11.1259 3.04096C11.2587 3.1738 11.3333 3.54183C11.3333 3.91755 11.4826 4.27789 11.7483 4.54356C12.0139 4.80924 12.3743 4.9585 12.75 4.9585H13.4583C13.8341 4.9585 14.1944 5.10775 14.4601 5.37343C14.7257 5.6391 14.875 5.99944 14.875 6.37516V12.7502C14.875 13.1259 14.7257 13.4862 14.4601 13.7519C14.1944 14.0176 13.8341 14.1668 13.4583 14.1668H3.54167C3.16594 14.1668 2.80561 14.0176 2.53993 13.7519C2.27426 13.4862 2.125 13.1259 2.125 12.7502V6.37516C2.125 5.99944 2.27426 5.6391 2.53993 5.37343C2.80561 5.10775 3.16594 4.9585 3.54167 4.9585Z"
-                      strokeWidth="1.23958"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      stroke="#34211B"
-                    />
-                    <path
-                      d="M6.375 9.2085C6.375 9.77208 6.59888 10.3126 6.9974 10.7111C7.39591 11.1096 7.93641 11.3335 8.5 11.3335C9.06358 11.3335 9.60409 11.1096 10.0026 10.7111C10.4011 10.3126 10.625 9.77208 10.625 9.2085C10.625 8.64491 10.4011 8.10441 10.0026 7.70589C9.60409 7.30738 9.06358 7.0835 8.5 7.0835C7.93641 7.0835 7.39591 7.30738 6.9974 7.70589C6.59888 8.10441 6.375 8.64491 6.375 9.2085Z"
-                      strokeWidth="1.23958"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      stroke="#34211B"
-                    />
-                  </g>
-                </svg>
-              </span>
-              <span className={styles.categoryTitle}>03 — shoot</span>
-            </div>
-            <div className={styles.skills}>
-              <span>davinci resolve</span>
-              <span>premiere pro</span>
-              <span>lightroom</span>
+              <span>AI Image Generation</span>
+              <span>Prompt Engineering</span>
+              <span>AI Video Generation</span>
+              <span>Creative Research</span>
             </div>
           </div>
         </div>

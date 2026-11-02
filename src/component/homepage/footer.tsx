@@ -28,7 +28,7 @@ export default function Footer(): React.JSX.Element {
           <span className={styles.socialsHeading}>ELSEWHERE</span>
           <div className={styles.socialLinks}>
             <a
-              href="#"
+              href="https://www.instagram.com/aryashruti21/"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
@@ -36,7 +36,7 @@ export default function Footer(): React.JSX.Element {
               INSTAGRAM &rarr;
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/shruti-arya-78b25a1b3/"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}

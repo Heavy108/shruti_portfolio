@@ -63,7 +63,7 @@ export default function Contact(): React.JSX.Element {
         <h2 className={styles.heading}>say hello.</h2>
 
         <div className={styles.contactLinks}>
-          <a href="mailto:migs.bello@gmail.com" className={styles.emailLink}>
+          <a href="mailto:aryashruti21@gmail.com" className={styles.emailLink}>
             <svg
               width="16"
               height="16"
@@ -77,11 +77,14 @@ export default function Contact(): React.JSX.Element {
               <rect width="20" height="16" x="2" y="4" rx="2" />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg>
-            migs.bello@gmail.com
+            aryashruti21@gmail.com
           </a>
 
           <div className={styles.socialLinks}>
-            <a href="#" className={styles.socialItem}>
+            <a
+              href="https://www.instagram.com/aryashruti21/"
+              className={styles.socialItem}
+            >
               <svg
                 width="14"
                 height="14"
@@ -98,23 +101,26 @@ export default function Contact(): React.JSX.Element {
               </svg>
               INSTAGRAM
             </a>
-            <a href="#" className={styles.socialItem}>
+            <a
+              href="https://www.behance.net/Shruti21_2022"
+              className={styles.socialItem}
+            >
               <svg
                 width="14"
                 height="14"
                 viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                fill="currentColor"
+                stroke="none"
               >
-                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-                <path d="m10 15 5-3-5-3z" />
+                <path d="M22 13.916c0 3.237-2.073 6.012-5.753 6.012-3.791 0-5.83-2.654-5.83-5.962 0-3.563 2.228-6.177 5.926-6.177 3.541 0 5.617 2.453 5.617 5.618 0 .285-.027.698-.073.955h-8.847c.108 1.624 1.258 2.654 2.946 2.654 1.173 0 2.148-.52 2.585-1.554h2.476c-.633 2.247-2.735 3.328-5.061 3.328-3.914 0-5.46-2.581-5.46-5.498 0-3.327 1.956-6.079 5.86-6.079 3.633 0 5.56 2.379 5.619 5.62v.083zM18.17 11.83h5.698c-.147-1.748-1.258-2.586-2.793-2.586-1.597 0-2.637.892-2.905 2.586zM8.134 10.36H4.256v3.236h4.111c1.557 0 2.766-.543 2.766-1.636 0-1.127-.92-1.6-2.999-1.6zm.307-3.978H4.256v2.855h3.987c1.381 0 2.392-.375 2.392-1.428 0-1.11-.859-1.427-2.194-1.427zm6.273 6.551c0 2.825-2.073 4.417-5.112 4.417H0V4.08h9.324c2.624 0 4.543 1.29 4.543 3.633 0 1.492-.936 2.586-2.316 3.12 1.61.428 2.887 1.541 2.887 3.238" />
+                <path d="M14.908 6.945h3.945v1.272h-3.945V6.945z" />
               </svg>
-              YOUTUBE
+              BEHANCE
             </a>
-            <a href="#" className={styles.socialItem}>
+            <a
+              href="https://www.linkedin.com/in/shruti-arya-78b25a1b3/"
+              className={styles.socialItem}
+            >
               <svg
                 width="14"
                 height="14"
